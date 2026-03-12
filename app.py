@@ -4,9 +4,8 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Load trained models
 model = pickle.load(open("model.pkl", "rb"))
-# Feature Importance (Global)
+
 features = ["Temperature", "Humidity", "Rainfall", "Wind Speed"]
 feature_importance = model.feature_importances_
 importance_data = list(zip(features, feature_importance))
@@ -29,9 +28,8 @@ def predict():
 
 
         heat_index = temperature + (0.33 * humidity) - (0.7 * wind_speed) - 4.0
-        heat_index = round(heat_index, 2)
-
-        # Heat Severity Label
+        heat_index = round(heat_index, 2
+                           
         if heat_index < 30:
             heat_label = "Normal"
         elif heat_index < 40:
